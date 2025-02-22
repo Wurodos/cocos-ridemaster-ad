@@ -15,6 +15,11 @@
     "mipfilter": "none",
     "anisotropy": 0,
     "isRGBE": false,
-    "bottom": "ca5e1da4-d676-45a1-a545-277447b58a83@6c48a"
+    "bottom": "ca5e1da4-d676-45a1-a545-277447b58a83",
+    "front": "ca5e1da4-d676-45a1-a545-277447b58a83",
+    "back": "ca5e1da4-d676-45a1-a545-277447b58a83",
+    "top": "ca5e1da4-d676-45a1-a545-277447b58a83",
+    "right": "ca5e1da4-d676-45a1-a545-277447b58a83",
+    "left": "ca5e1da4-d676-45a1-a545-277447b58a83"
   }
 }

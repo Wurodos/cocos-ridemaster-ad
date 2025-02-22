@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, Node, sys } from 'cc';
+import { _decorator, Component, Label, Node, sys, Animation } from 'cc';
 
 const { ccclass, property } = _decorator;
 
@@ -13,13 +13,15 @@ export class Main extends Component {
     @property({type: Node})
     loseScreen: Node | null = null;
 
-    @property({type: Node})
-    downloadButton: Node | null = null;
+    @property({type: Animation})
+    btnDownloadAnim: Animation | null = null;
 
     start()
     {
         this.hasInteracted = false;
         Main.instance = this;
+
+        
     }
 
     takeToStore()
@@ -44,6 +46,7 @@ export class Main extends Component {
     lose()
     {
         this.loseScreen.active = true;
+        this.btnDownloadAnim.play();
     }
 }
 

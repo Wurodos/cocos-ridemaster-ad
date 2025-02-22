@@ -36,7 +36,12 @@
     }
   ],
   "_props": [
-    {},
+    {
+      "environmentMap": {
+        "__uuid__": "c55338ac-b2ab-43d2-b44a-038c445dffc4",
+        "__expectedType__": "cc.TextureCube"
+      }
+    },
     {}
   ]
 }

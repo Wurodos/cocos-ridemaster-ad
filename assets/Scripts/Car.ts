@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, math, Node, RigidBody, RigidBodyComponent, Slider } from 'cc';
+import { _decorator, Collider, Component, ITriggerEvent, Label, math, Node, RigidBody, RigidBodyComponent, Slider } from 'cc';
 import { Main } from './Main';
 const { ccclass, property } = _decorator;
 
@@ -11,13 +11,19 @@ export class Car extends Component {
     @property({type: Label})
     coinText: Label | null = null;
 
+    coins = 0;
+
     @property({type: Number})
     minForce = 0
 
     rigidBody : RigidBody = null
 
     start() {
+       this.coins = 0
        this.rigidBody = this.getComponent(RigidBody)
+
+       let collider = this.getComponent(Collider);
+       collider.on('onTriggerEnter', this.onTrigger, this);
     }
 
     update(deltaTime: number) {
@@ -31,6 +37,13 @@ export class Car extends Component {
             Main.instance.lose()
         }
         
+    }
+
+    private onTrigger(event: ITriggerEvent)
+    {
+        event.otherCollider.node.destroy();
+        this.coins++;
+        this.coinText.string = this.coins.toString();
     }
 }
 
