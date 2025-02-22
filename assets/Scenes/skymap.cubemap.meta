@@ -1,0 +1,20 @@
+{
+  "ver": "1.0.4",
+  "importer": "texture-cube",
+  "imported": true,
+  "uuid": "c55338ac-b2ab-43d2-b44a-038c445dffc4",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "wrapModeS": "clamp-to-edge",
+    "wrapModeT": "clamp-to-edge",
+    "minfilter": "linear",
+    "magfilter": "linear",
+    "mipfilter": "none",
+    "anisotropy": 0,
+    "isRGBE": false,
+    "bottom": "ca5e1da4-d676-45a1-a545-277447b58a83@6c48a"
+  }
+}
