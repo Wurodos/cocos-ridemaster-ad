@@ -1,4 +1,4 @@
-import { _decorator, Component, math, Node } from 'cc';
+import { _decorator, CCInteger, Component, math, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Hand')
@@ -7,11 +7,11 @@ export class Hand extends Component {
     @property({type: Node})
     handle: Node | null = null;
 
-    @property({type: Number})
-    speed : Number
+    @property({type: CCInteger})
+    speed = 2
 
-    @property({type: Number})
-    limit : Number
+    @property({type: CCInteger})
+    limit = -350
 
     private startPos : math.Vec3
     private handleStartPos : math.Vec3

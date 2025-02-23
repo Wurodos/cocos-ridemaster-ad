@@ -1,4 +1,4 @@
-import { _decorator, Collider, Component, ITriggerEvent, Label, math, Node, RigidBody, RigidBodyComponent, Slider } from 'cc';
+import { _decorator, CCFloat, Collider, Component, ITriggerEvent, Label, math, Animation, RigidBody, Slider } from 'cc';
 import { Main } from './Main';
 const { ccclass, property } = _decorator;
 
@@ -11,12 +11,17 @@ export class Car extends Component {
     @property({type: Label})
     coinText: Label | null = null;
 
+    @property({type: Animation})
+    newCoinAnim: Animation | null = null;
+
     coins = 0;
 
-    @property({type: Number})
-    minForce = 0
+    @property({type: CCFloat})
+    maxImpulse = 0
 
     rigidBody : RigidBody = null
+
+    private hasLost = false
 
     start() {
        this.coins = 0
@@ -27,23 +32,43 @@ export class Car extends Component {
     }
 
     update(deltaTime: number) {
-        this.node.eulerAngles = new math.Vec3(0,0,this.node.eulerAngles.z)
+        if (this.hasLost) return
+
+        // stop unwanted rotations
+        this.node.eulerAngles = new math.Vec3(0,0,Math.min(0, this.node.eulerAngles.z))
+
+        // movement
         if (Main.instance.hasInteracted)
-            this.rigidBody.applyForce(new math.Vec3(this.minForce * (1 + this.speedSlider.progress), 0, 0))
-        else this.rigidBody.applyForce(new math.Vec3(this.minForce, 0, 0))
+            this.rigidBody.applyImpulse(new math.Vec3(this.maxImpulse*this.speedSlider.progress*deltaTime, 0, 0));
+
+        // lose condition
 
         if (this.node.position.y < -10)
         {
+            this.hasLost = true
             Main.instance.lose()
+            this.break()
         }
         
     }
 
     private onTrigger(event: ITriggerEvent)
     {
+
+        // new coin animtion
+        this.newCoinAnim.play();
+
+        // destroy coin
         event.otherCollider.node.destroy();
+        
+        // increase coin count
         this.coins++;
         this.coinText.string = this.coins.toString();
+    }
+
+    private break()
+    {
+        this.getComponent(Animation).play()
     }
 }
 

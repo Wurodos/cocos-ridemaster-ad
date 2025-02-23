@@ -13,15 +13,13 @@ export class Main extends Component {
     @property({type: Node})
     loseScreen: Node | null = null;
 
-    @property({type: Animation})
-    btnDownloadAnim: Animation | null = null;
+    @property({type: Node})
+    btnDownload: Node | null = null;
 
     start()
     {
         this.hasInteracted = false;
         Main.instance = this;
-
-        
     }
 
     takeToStore()
@@ -45,8 +43,8 @@ export class Main extends Component {
 
     lose()
     {
+        this.btnDownload.getComponent(Animation).play();
         this.loseScreen.active = true;
-        this.btnDownloadAnim.play();
     }
 }
 
