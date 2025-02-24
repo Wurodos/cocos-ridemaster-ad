@@ -2,12 +2,12 @@
   "ver": "2.0.3",
   "importer": "animation-clip",
   "imported": true,
-  "uuid": "6592c1c6-96ab-4561-be4c-09acaa78905c",
+  "uuid": "96a079f9-aaa1-4587-9e45-027ad185cb6d",
   "files": [
     ".cconb"
   ],
   "subMetas": {},
   "userData": {
-    "name": "CarBreak"
+    "name": "BoosterSpin"
   }
 }

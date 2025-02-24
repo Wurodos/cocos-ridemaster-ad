@@ -2,12 +2,12 @@
   "ver": "2.0.3",
   "importer": "animation-clip",
   "imported": true,
-  "uuid": "6592c1c6-96ab-4561-be4c-09acaa78905c",
+  "uuid": "cce5be54-2fc0-494d-a47e-bda99e8691ca",
   "files": [
     ".cconb"
   ],
   "subMetas": {},
   "userData": {
-    "name": "CarBreak"
+    "name": "WheelSpin"
   }
 }

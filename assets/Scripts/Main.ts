@@ -16,6 +16,9 @@ export class Main extends Component {
     @property({type: Node})
     btnDownload: Node | null = null;
 
+    @property([Animation])
+    anims: Animation[] = [];
+
     start()
     {
         this.hasInteracted = false;
@@ -38,6 +41,12 @@ export class Main extends Component {
 
     onInteracted()
     {
+        if (!this.hasInteracted)
+        {
+            this.anims.forEach(anim => {
+                anim.play()
+            });
+        }
         this.hasInteracted = true;
     }
 

@@ -43,10 +43,13 @@ export class Car extends Component {
 
         // lose condition
 
-        if (this.node.position.y < -10)
+        if (this.node.position.y < -0.1)
         {
             this.hasLost = true
-            Main.instance.lose()
+            this.schedule(function() {
+                Main.instance.lose()
+            }, 0, 1, 2)
+            
             this.break()
         }
         
